@@ -1,6 +1,9 @@
-const ROCK = 0
-const PAPER = 1
-const SCISSORS = 2
+const ROCK = 0;
+const PAPER = 1;
+const SCISSORS = 2;
+
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() { // randomly returns rock, paper or scissor
   let choice;
@@ -21,4 +24,10 @@ function getComputerChoice() { // randomly returns rock, paper or scissor
   return choice;
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+  let choice = prompt("Enter your choice (rock = 0, paper = 1, scissors = 2): ");
+  return choice;
+}
+
+console.log(getHumanChoice());
+console.log(getComputerChoice());
