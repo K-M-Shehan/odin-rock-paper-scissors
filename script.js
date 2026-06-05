@@ -11,13 +11,13 @@ function getComputerChoice() { // randomly returns rock, paper or scissor
 
   switch (rand) {
     case ROCK:
-      choice = 0;
+      choice = "rock";
       break;
     case PAPER:
-      choice = 1;
+      choice = "paper";
       break;
     case SCISSORS:
-      choice = 2;
+      choice = "scissors";
       break;
   }
 
@@ -25,9 +25,30 @@ function getComputerChoice() { // randomly returns rock, paper or scissor
 }
 
 function getHumanChoice() {
-  let choice = prompt("Enter your choice (rock = 0, paper = 1, scissors = 2): ");
+  let choice = prompt("Enter your choice (rock, paper or scissors): ");
   return choice;
 }
 
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+function playRound(humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase();
+
+  if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "paper" || humanChoice == "paper" && computerChoice == "rock") {
+    console.log("You Win! " + humanChoice + " beats " + computerChoice);
+    humanScore++;
+  }
+  else if (humanChoice == computerChoice) {
+    console.log("Its a draw");
+  }
+  else {
+    console.log("You Lose! " + computerChoice + " beats " + humanChoice);
+    computerScore++;
+  }
+}
+
+const human = getHumanChoice();
+const puter = getComputerChoice();
+
+console.log(human);
+console.log(puter);
+
+playRound(human, puter);
