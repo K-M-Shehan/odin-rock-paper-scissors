@@ -10,6 +10,8 @@ const paperButton = document.querySelector("#paper");
 const sciButton = document.querySelector("#scissors");
 
 const result = document.querySelector("#result");
+const hscore = document.querySelector("#hscore");
+const cscore = document.querySelector("#cscore");
 
 function getComputerChoice() { // randomly returns rock, paper or scissor
   let choice;
@@ -45,6 +47,9 @@ function playRound(humanChoice, computerChoice) {
     result.textContent = "You Lose! " + computerChoice + " beats " + humanChoice;
     computerScore++;
   }
+
+  hscore.textContent = "Your score: " + humanScore;
+  cscore.textContent = "Puter score: " + computerScore;
 }
 
 function playGame() {
