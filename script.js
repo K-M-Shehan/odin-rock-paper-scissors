@@ -33,6 +33,16 @@ function getComputerChoice() { // randomly returns rock, paper or scissor
   return choice;
 }
 
+function displayScore() {
+  hscore.textContent = "Your score: " + humanScore;
+  cscore.textContent = "Puter score: " + computerScore;
+}
+
+function resetScores() {
+  humanScore = 0;
+  computerScore = 0;
+}
+
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "paper" || humanChoice == "paper" && computerChoice == "rock") {
     roundResult.textContent = "You Win! " + humanChoice + " beats " + computerChoice;
@@ -46,18 +56,18 @@ function playRound(humanChoice, computerChoice) {
     computerScore++;
   }
 
-  hscore.textContent = "Your score: " + humanScore;
-  cscore.textContent = "Puter score: " + computerScore;
+  displayScore();
 
   if (humanScore >= 5) {
     finalResult.textContent = "You won, Score: " + humanScore + "-" + computerScore;
-    // TODO: reset scores
+    resetScores();
+    displayScore();
   }
   else if (computerScore >= 5) {
     finalResult.textContent = "You lost, Score: " + humanScore + "-" + computerScore;
-    // TODO: reset scores
+    resetScores();
+    displayScore();
   }
-
 }
 
 // button event listeners
