@@ -1,0 +1,24 @@
+html {
+  background-color: teal;
+}
+
+body {
+  margin: 50px 30%;
+  color:whitesmoke;
+}
+
+button {
+  width: 5rem;
+  height: 5rem;
+  background-color: whitesmoke;
+  border: black;
+  border-radius: 10px;
+  font-size: 50px;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
