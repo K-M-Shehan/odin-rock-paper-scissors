@@ -9,6 +9,8 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const sciButton = document.querySelector("#scissors");
 
+const result = document.querySelector("#result");
+
 function getComputerChoice() { // randomly returns rock, paper or scissor
   let choice;
   let rand = Math.floor(Math.random() * 3) // will give a random value from 0 - 2 inclusive
@@ -31,13 +33,16 @@ function getComputerChoice() { // randomly returns rock, paper or scissor
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "paper" || humanChoice == "paper" && computerChoice == "rock") {
     console.log("You Win! " + humanChoice + " beats " + computerChoice);
+    result.textContent = "You Win! " + humanChoice + " beats " + computerChoice;
     humanScore++;
   }
   else if (humanChoice == computerChoice) {
     console.log("It's a draw");
+    result.textContent = "It's a draw";
   }
   else {
     console.log("You Lose! " + computerChoice + " beats " + humanChoice);
+    result.textContent = "You Lose! " + computerChoice + " beats " + humanChoice;
     computerScore++;
   }
 }
