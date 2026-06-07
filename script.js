@@ -35,16 +35,13 @@ function getComputerChoice() { // randomly returns rock, paper or scissor
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "paper" || humanChoice == "paper" && computerChoice == "rock") {
-    console.log("You Win! " + humanChoice + " beats " + computerChoice);
     roundResult.textContent = "You Win! " + humanChoice + " beats " + computerChoice;
     humanScore++;
   }
   else if (humanChoice == computerChoice) {
-    console.log("It's a draw");
     roundResult.textContent = "It's a draw";
   }
   else {
-    console.log("You Lose! " + computerChoice + " beats " + humanChoice);
     roundResult.textContent = "You Lose! " + computerChoice + " beats " + humanChoice;
     computerScore++;
   }
@@ -53,12 +50,10 @@ function playRound(humanChoice, computerChoice) {
   cscore.textContent = "Puter score: " + computerScore;
 
   if (humanScore >= 5) {
-    console.log("You won, Score: " + humanScore + "-" + computerScore);
     finalResult.textContent = "You won, Score: " + humanScore + "-" + computerScore;
     // TODO: reset scores
   }
   else if (computerScore >= 5) {
-    console.log("You lost, Score: " + humanScore + "-" + computerScore);
     finalResult.textContent = "You lost, Score: " + humanScore + "-" + computerScore;
     // TODO: reset scores
   }
