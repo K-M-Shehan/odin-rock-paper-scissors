@@ -9,9 +9,10 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const sciButton = document.querySelector("#scissors");
 
-const result = document.querySelector("#result");
+const roundResult = document.querySelector("#roundResult");
 const hscore = document.querySelector("#hscore");
 const cscore = document.querySelector("#cscore");
+const finalResult = document.querySelector("#finalResult");
 
 function getComputerChoice() { // randomly returns rock, paper or scissor
   let choice;
@@ -35,36 +36,36 @@ function getComputerChoice() { // randomly returns rock, paper or scissor
 function playRound(humanChoice, computerChoice) {
   if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "paper" || humanChoice == "paper" && computerChoice == "rock") {
     console.log("You Win! " + humanChoice + " beats " + computerChoice);
-    result.textContent = "You Win! " + humanChoice + " beats " + computerChoice;
+    roundResult.textContent = "You Win! " + humanChoice + " beats " + computerChoice;
     humanScore++;
   }
   else if (humanChoice == computerChoice) {
     console.log("It's a draw");
-    result.textContent = "It's a draw";
+    roundResult.textContent = "It's a draw";
   }
   else {
     console.log("You Lose! " + computerChoice + " beats " + humanChoice);
-    result.textContent = "You Lose! " + computerChoice + " beats " + humanChoice;
+    roundResult.textContent = "You Lose! " + computerChoice + " beats " + humanChoice;
     computerScore++;
   }
 
   hscore.textContent = "Your score: " + humanScore;
   cscore.textContent = "Puter score: " + computerScore;
-}
 
-function playGame() {
-  if (humanScore > computerScore) {
+  if (humanScore >= 5) {
     console.log("You won, Score: " + humanScore + "-" + computerScore);
+    finalResult.textContent = "You won, Score: " + humanScore + "-" + computerScore;
+    // TODO: reset scores
   }
-  else if (humanScore == computerScore) {
-    console.log("It's a draw, Score: " + humanScore + "-" + computerScore);
-  }
-  else {
+  else if (computerScore >= 5) {
     console.log("You lost, Score: " + humanScore + "-" + computerScore);
+    finalResult.textContent = "You lost, Score: " + humanScore + "-" + computerScore;
+    // TODO: reset scores
   }
+
 }
 
-// event listeners
+// button event listeners
 rockButton.addEventListener("click", () => {
   playRound("rock", getComputerChoice());
 })
