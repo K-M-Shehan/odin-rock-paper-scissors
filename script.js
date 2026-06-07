@@ -44,6 +44,8 @@ function resetScores() {
 }
 
 function playRound(humanChoice, computerChoice) {
+  finalResult.textContent = ""; // resets the final score once the next round starts
+
   if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "scissors" && computerChoice == "paper" || humanChoice == "paper" && computerChoice == "rock") {
     roundResult.textContent = "You Win! " + humanChoice + " beats " + computerChoice;
     humanScore++;
